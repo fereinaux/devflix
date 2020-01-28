@@ -3,118 +3,17 @@
     background-image: linear-gradient(to top, rgba(255,0,0,0),#000);
 }
 
-.main-container .header {
-    background: rgba(255,0,0,0);
-    display: flex;
-    flex-direction: row;
-    height: 100px;
-    padding: 30px 40px;
-}
-
-.main-container .header img {
-    max-width: 130px;
-    max-height: 50px;
-    margin: 0px 15px;
-}
-
-.main-container .header a {        
-    text-decoration: none;
-    color: #fff;
-}  
-
-.main-container .header h4 {
-    font-size: 11px;
-    margin: 15px 10px;    
-}  
-
 .main-container .content-git h2 {
     color: #fff;
     font-size: 20px;
 }
 
 .main-container .content-git {
-    padding: 0px 50px;
+    padding: 0px 70px;
     margin-bottom: 50px;
 }
 
-.main-container .git-itens {
+.main-container .itens {
     display: flex;
     flex-direction: row;    
-}
-
-.main-container .git-itens .item {
-    position: relative;
-    width: 250px;
-    margin-right: 25px;
-    cursor: pointer;
-}
-
-.main-container .git-itens .item img {
-    width: 100%;
-}
-
-.main-container .git-itens .item .dev-shadow {
-    height: 75%;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    position: absolute;
-    background-image: linear-gradient(to bottom, rgba(255,0,0,0),#000);
-}
-
-.main-container .git-itens .item .repo-shadow {
-    top:0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    position: absolute;    
-    background: rgba(0,0,0,0.6);    
-}
-
-
-.main-container .git-itens .dev-username {
-    color: rgba(255,255,255,0.8);
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    margin: 0;
-    font-style: italic;
-    font-size: 20px;
-}
-
-.main-container .git-itens .repo-name {
-    color: rgba(255,255,255,0.8);
-    position: absolute;
-    bottom: 5%;
-    left: 0;
-    padding-left: 8px;
-    margin: 0;
-    font-style: italic;
-    font-size: 17px;
-}
-
-.main-container .git-itens .repo-tag {
-    color: rgba(255,255,255,0.8);
-    position: absolute;
-    bottom: 5%;
-    right: 0;
-    padding-right: 10px;
-    margin: 0;
-    font-style: italic;
-    font-size: 12px;
-}
-
-.dot {
-    height: 7px;
-    width: 7px;
-    margin-right: 2px;
-    margin-bottom: 1px;
-    border-radius: 50%;
-    display: inline-block;
-    background-color: rgb(165, 177, 196);
-}
-
-.main-container .git-itens .repo-img {
-    background: #fff;
 }
