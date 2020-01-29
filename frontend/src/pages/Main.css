@@ -16,4 +16,7 @@
 .main-container .itens {
     display: flex;
     flex-direction: row;    
+    white-space:nowrap;
+    width: 100%;
+    overflow: auto;
 }

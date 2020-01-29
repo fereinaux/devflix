@@ -1,6 +1,8 @@
 .repo {
+  display: inline-block;
   position: relative;
   width: 250px;
+  min-width: 250px;
   margin-right: 25px;
   cursor: pointer;
 }
@@ -21,12 +23,12 @@
 .repo-name {
   color: rgba(255,255,255,0.8);
   position: absolute;
-  bottom: 5%;
+  top: 5%;
   left: 0;
   padding-left: 8px;
   margin: 0;
   font-style: italic;
-  font-size: 17px;
+  font-size: 1em;
 }
 
 .repo-tag {
@@ -59,4 +61,16 @@
 
 .pink {
   background-color: #bd1392 !important;
+}
+
+.yellow {
+  background-color: #bdb213 !important;
+}
+
+.green {
+  background-color: #13bd21 !important;
+}
+
+.purple {
+  background-color: #9b13bd !important;
 }

@@ -16,6 +16,7 @@ const DevSchema = new Schema({
   },
   repos: [
     {
+      id: Schema.Types.ObjectId,
       name: {
         type: String,
         required: true,

@@ -2,17 +2,45 @@ const axios = require('axios');
 const Dev = require('../models/Dev')
 
 module.exports = {
-  async index(req, res) {
-    const { user } = req.headers;
+  async devs(req, res) {
+    const devs = await Dev.find();
+    return res.json(devs);
+  },
+  async repos(req, res) {
+    const { dev } = req.headers;
 
-    const loggedDev = await Dev.findById(user);
+    const devs = await Dev.find();
+    const repos = []
 
-    const users = await Dev.find({
-      $and: [
-        { _id: { $ne: user } }       
-      ],
-    })
-    return res.json(users);
+    function getColor(language) {
+      switch (language) {
+        case 'JavaScript':
+          return 'blue'
+        case 'C#':
+          return 'pink'
+        case 'C':
+          return 'purple'
+        case 'Java':
+          return 'green'
+        case 'HTML':
+          return 'yellow'
+        default:
+          return 'blue'
+      }
+    }
+
+    devs.forEach(dev => {
+      dev.repos.forEach(repo => {
+        repos.push({
+          name: repo.name,
+          language: {
+            name: repo.languages[0],
+            color: getColor(repo.languages[0])
+          }
+        });
+      });
+    });
+    return res.json(repos);
   },
   async store(req, res) {
     const { username } = req.body;
@@ -32,7 +60,12 @@ module.exports = {
       for (const language in languagesReponse.data) {
         languages.push(language);
       }
-      repos.push()
+
+      repos.push({
+        name: repo.name,
+        link: repo.url,
+        languages
+      })
     }
 
     for (let index = 0; index < reposResponse.data.length; index++) {
