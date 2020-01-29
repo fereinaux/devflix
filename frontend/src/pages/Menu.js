@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import './Menu.css';
 
-export default function Menu({ menu }) {
+export default function Menu({ dev }) {
+  console.log(dev);
   return (
     <div className="header">
 
@@ -15,7 +16,7 @@ export default function Menu({ menu }) {
             pathname: '/'
           }
         }> <img src={logo} className="logo" alt="logo" /></Link>
-        <ul>
+        {/* <ul>
           <li >
             <Link to={
               {
@@ -37,13 +38,13 @@ export default function Menu({ menu }) {
               }
             }>Repos</Link>
           </li>
-        </ul>
+        </ul> */}
       </div>
       <div className="header-right">
-        <div className="search">
+        {/* <div className="search">
           <FontAwesomeIcon icon={faSearch} />
-        </div>
-        <img src="https://avatars1.githubusercontent.com/u/40035984?s=460&v=4" alt="" />
+        </div> */}
+        <img src={dev.avatar} alt="" />
       </div>
     </div>
   )

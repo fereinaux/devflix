@@ -1,58 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Menu from './Menu';
 import Dev from './Dev';
 import Repo from './Repo';
-
-import { Link } from 'react-router-dom';
+import api from '../services/api';
 import YoutubeBackground from 'react-youtube-background';
 
 import './Main.css';
 
-export default function Main() {
+export default function Main(props) {
+    const [devs, setDevs] = useState([]);
+    const [repos, setRepos] = useState([]);
+    const [devLogado, setDevLogado] = useState(props.location.state.dev);
+    useEffect(() => {
+        async function loadRepos() {
+            const response = await api.get(`/repos`)
+            setRepos(response.data);            
+        }
+
+        async function loadDevs() {
+            const response = await api.get(`/devs`)
+            setDevs(response.data);
+        }
+        loadDevs();
+        loadRepos();
+    }, [devLogado._id])
+
     return (
         <div className="main-container">
             <YoutubeBackground className="trailer" videoId='lqgM8ZdAqKo'>
-                <Menu menu="Início"></Menu>
-                <div className="content-git">
-                    <h2>Populares no GitHub</h2>
-                    <div className="itens">
-                        <Dev dev={
+                <Menu dev={devLogado}></Menu>
+                {devs.length > 0 ?
+                    <div className="content-git">
+                        <h2>Populares no GitHub</h2>
+                        <ul className="itens">
                             {
-                                username: 'fereinaux',
-                                avatar: 'https://avatars1.githubusercontent.com/u/40035984?s=460&v=4'
+                                devs.map(dev => (
+                                    <Dev key={dev._id} dev={dev} />
+                                ))
                             }
-                        }></Dev>
-                        <Dev dev={
-                            {
-                                username: 'filipedeschamps',
-                                avatar: 'https://avatars3.githubusercontent.com/u/4248081?s=460&v=4'
-                            }
-                        }></Dev>
+                        </ul>
                     </div>
-                </div>
-                <div className="content-git">
-                    <h2>Repositórios em Alta</h2>
-                    <div className="itens">
-                        <Repo repo={
+                    : ""
+                }
+                {repos.length > 0 ?
+                    <div className="content-git">
+                        <h2>Repositórios em Alta</h2>
+                        <ul className="itens">
                             {
-                                name: 'Tindev',
-                                language: {
-                                    name: 'Javascript',
-                                    color: 'blue'
-                                }
+                                repos.map(repo => (
+                                    <Repo key={repo.name} repo={repo} />
+                                ))
                             }
-                        }></Repo>
-                        <Repo repo={
-                            {
-                                name: 'SeminariosIECB',
-                                language: {
-                                    name: 'C#',
-                                    color: 'pink'
-                                }
-                            }
-                        }></Repo>
+                        </ul>
                     </div>
-                </div>
+                    : ""}
             </YoutubeBackground>
         </div >
     )
