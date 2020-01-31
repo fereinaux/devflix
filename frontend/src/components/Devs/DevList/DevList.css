@@ -1,0 +1,12 @@
+.dev-list {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  overflow: auto;
+} 
+
+.dev-list li {
+  color:rgba(255,255,255,0.8);  
+  font-style: italic;
+  padding: 15px;  
+}

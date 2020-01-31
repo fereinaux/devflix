@@ -1,0 +1,30 @@
+.menu {
+  padding: 30px 60px;
+  display: flex;
+  flex-direction: row;
+}
+
+.menu img {
+  max-width: 130px;
+  cursor: pointer;
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+} 
+
+.menu-list li{
+  padding: 8px 10px;
+}
+
+.menu-list li a {
+  color: #fff;
+  font-size: 1.0em;
+} 
+
+.menu-list li a:link {
+  text-decoration: none;
+} 

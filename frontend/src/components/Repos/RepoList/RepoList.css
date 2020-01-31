@@ -1,0 +1,11 @@
+.repo-list {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  overflow: auto;
+} 
+
+.repo-list li {
+  color:rgba(255,255,255,0.8);  
+  padding: 15px;  
+}
